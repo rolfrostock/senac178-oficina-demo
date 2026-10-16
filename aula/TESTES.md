@@ -1,18 +1,17 @@
-# Testes da aula
+# Testes do caso relacional
 
-Os exemplos abaixo usam apenas dados fictícios. Antes da correção, os casos vazios são aceitos. Esse é o comportamento preparado que os alunos devem identificar.
+O baseline possui FK ativa e cliente_id anulável. A falha é permitir seleção ausente (NULL), não permitir referência a um ID inexistente. Há dois clientes vinculados e uma solicitação inicial sem cliente.
 
-| Caso | Operação | Entrada de assunto | Resultado correto esperado após o ajuste |
+| Caso | Ação | Antes | Depois da correção |
 |---|---|---|---|
-| T1 | Cadastrar | Trocar teclado | Novo registro aparece na lista e permanece após recarregar. |
-| T2 | Cadastrar | Campo vazio | Bloqueio, mensagem, foco no assunto, demais campos preservados e nenhuma inserção. |
-| T3 | Cadastrar | Três espaços | Mesmo bloqueio do T2. |
-| T4 | Editar registro válido | Apagar o assunto | Bloqueio sem substituir o assunto que estava no banco. |
-| T5 | Editar registro válido | Três espaços | Mesmo bloqueio do T4. |
-| T6 | Editar registro válido | Limpeza do notebook | Alteração válida salva e persistente. |
+| T1 | Sem cliente, equipamento e assunto válidos | Salva NULL: falha da regra de negócio. | Bloqueia, mostra mensagem, preserva campos e quantidade. |
+| T2 | Selecionar Marina e registrar Trocar teclado | Salva vínculo. | Continua salvando e exibindo nome e contato pelo JOIN. |
+| T3 | Na edição de uma OS válida, retirar o cliente | Grava NULL. | Bloqueia e mantém o cliente anterior no banco. |
 
-No tempo da aula, priorize T1, T2 e T3. T4 é uma checagem adicional importante para a preparação e a revisão do Codex. Leia o contador antes de enviar e confirme que ele não muda nos casos rejeitados. Retire os filtros da listagem antes de comparar o total.
+Antes de clicar, peça o esperado. Depois compare a tela e o contador. Ao testar T3, usar uma OS de teste, sem reatribuir clientes do histórico para simular correção.
 
-Registros antigos sem assunto continuam existindo após implementar a validação. A correção impede novas gravações inválidas; não recupera informações que nunca foram registradas.
+Preparação adicional do docente: verificar rejeição de ID inexistente no servidor, FK ativa, bloqueio de exclusão de cliente com pedidos e CRUD de cliente sem pedidos. Não gastar os vinte minutos com esses casos extras.
 
-Para ensaiar novamente a falha depois da correção, restaure SOMENTE os arquivos de código alterados a partir do ZIP original. Não importe o SQL nem apague o banco para restaurar o código. Preserve config.local.php, que pertence à instalação desta máquina.
+Após a correção, o pedido antigo sem cliente continua sem cliente. A validação impede novas gravações inválidas; um responsável precisa revisar o histórico com informação confiável. Não inferir o dono do equipamento nem associá-lo por palpite.
+
+Para ensaiar novamente, restaure SOMENTE salvar.php da cópia de base. Não importe schema.sql sobre um banco existente, não remova FK e não apague o banco. As versões anterior e relacional usam bancos diferentes.

@@ -1,26 +1,16 @@
 Contexto e problema
-Este projeto contém um CRUD em PHP e MySQL para uma assistência técnica de computadores. A recepção consegue salvar solicitações com o campo Assunto vazio ou contendo somente espaços. Esses pedidos chegam ao técnico sem a descrição do serviço, exigindo novo contato para recuperar informações e gerando retrabalho e atraso.
+Este sistema de uma assistência técnica possui as tabelas clientes e solicitacoes, relacionadas por solicitacoes.cliente_id = clientes.id. O CRUD já existe, mas a recepção consegue salvar solicitações sem selecionar o cliente. O pedido aparece como Cliente não vinculado e sem contato. Isso exige recuperar a informação e atrasa o atendimento.
 
-Ambiente e escopo
-Projeto local servido pelo Apache do WAMP. Os dados persistem no MySQL. O CRUD e o tratamento de erros já existem. Analise index.php e salvar.php e mantenha as alterações limitadas à validação do assunto.
+Ambiente e diagnóstico
+PHP com PDO, MySQL e WAMP local. A chave estrangeira já existe e rejeita IDs inexistentes, mas cliente_id permite NULL. Analise index.php e salvar.php. A validação da existência de um ID preenchido já existe; falta tornar a seleção obrigatória.
 
 Requisito
-Uma solicitação deve conter assunto com texto além de espaços em branco. Aplique a regra no PHP, antes de INSERT e UPDATE. Não dependa somente da validação do navegador.
-
-Quando a entrada for inválida, não grave nem altere o registro. Exiba uma mensagem clara, preserve os demais campos e retorne o foco ao assunto usando o fluxo de erros existente.
-
-Preserve o cadastro de solicitações válidas, a listagem, a busca, os filtros, a edição e a exclusão. Não adicione dependências nem mude credenciais, tabelas ou dados existentes.
+No PHP, antes de INSERT e UPDATE, exija cliente selecionado e existente. Para seleção ausente ou inválida, impeça a gravação, informe claramente o motivo, preserve os campos preenchidos e retorne o foco ao seletor. Reutilize o fluxo de erros existente. Preserve FK, LEFT JOIN, CRUD, busca, modo escuro e UTF-8 sem BOM. Não altere o esquema nem associe ou apague registros históricos automaticamente.
 
 Critérios de aceite
-1. Assunto "Trocar teclado": salvar e exibir na lista, inclusive após recarregar.
-2. Assunto vazio: rejeitar com mensagem e manter a quantidade de registros.
-3. Assunto com três espaços: mesmo bloqueio.
-4. Na edição, rejeitar vazio e espaços sem apagar o assunto válido que já estava no banco.
+T1: sem cliente, com equipamento e assunto válidos: bloquear sem inserir.
+T2: cliente Marina, equipamento Notebook de teste e assunto Trocar teclado: salvar e mostrar nome e contato pela relação, mantendo os dados após recarregar.
+T3: ao editar uma solicitação válida e retirar o cliente: bloquear sem apagar o vínculo já salvo.
+Revisão adicional fora do tempo principal: ID inexistente deve continuar sendo rejeitado.
 
-Mostre a diferença no código e explique como verificar cada critério. Não modifique nem apague os registros antigos para simular sucesso.
-
-Qualidade a cada alteração
-Siga AGENTS.md. Preserve UTF-8 sem BOM e a acentuação dos textos. Execute php tools/verificar_utf8.php antes e depois da edição, execute php -l nos PHP alterados e revise o diff. Uma nova versão só pode ser considerada pronta após os checks e a conferência do fluxo na tela. Não remova acentos nem regrave todos os arquivos para contornar falhas de codificação.
-
-Aprovações
-Depois da implementação e das verificações, apresente o resumo do diff, os arquivos alterados, os resultados dos testes, eventuais pendências e a mensagem proposta para o commit. Aguarde minha aprovação para comitar. Depois do commit, informe o SHA e peça autorização separada para o push. Não execute commit nem push automaticamente.
+Mostre o diff e explique a correção. Execute php tools/verificar_utf8.php e php -l nos PHP alterados. Depois dos testes, apresente arquivos, resultados, pendências e mensagem proposta. Aguarde aprovação para Comitar e, separadamente após o commit, para Push. Não faça commit, push nem limpeza do banco automaticamente.

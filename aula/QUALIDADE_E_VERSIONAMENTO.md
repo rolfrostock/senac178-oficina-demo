@@ -6,7 +6,7 @@ Uma alteração pode resolver a regra de negócio e, ao regravar um arquivo com 
 
 Fala sugerida para cerca de 25 segundos durante a revisão do código:
 
-“Além de conferir a regra do cadastro, vamos preservar o que já funciona. Em cada versão, verificamos a sintaxe, a codificação UTF-8 e os textos com acentos. Uma mudança que resolve o assunto vazio, mas corrompe a tela, ainda precisa de correção. Por isso revisamos o código e testamos o resultado antes de considerar a versão pronta.”
+“Além de conferir a regra do cadastro, vamos preservar o que já funciona. Em cada versão, verificamos a sintaxe, a codificação UTF-8 e os textos com acentos. Uma mudança que resolve o cliente não selecionado, mas corrompe a tela, ainda precisa de correção. Por isso revisamos o código e testamos o resultado antes de considerar a versão pronta.”
 
 Use esse trecho dentro do tempo de revisão, sem acrescentar uma nova etapa aos vinte minutos. Os alunos podem observar solicitação, diagnóstico e concluído na interface.
 

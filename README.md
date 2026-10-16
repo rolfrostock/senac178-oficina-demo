@@ -1,34 +1,31 @@
-# Oficina Byte
+# Oficina Byte com duas tabelas
 
-Sistema local em PHP e MySQL para uma aula experimental de desenvolvimento de sistemas com apoio de IA. A empresa, os clientes e as solicitações são fictícios.
+Versão de preparação 1.1.0. Aula SENAC PR 178/2026 em 19/10/2026 às 16h, duração de vinte minutos, banca de três pessoas como alunos. Tema: Desenvolvimento de sistemas com apoio da Inteligência Artificial: da identificação do problema à implementação de soluções.
 
-## Versão inicial com problema
+## Caso e falha preparados
 
-Esta versão é a base da demonstração: o CRUD está pronto, mas aceita solicitações cujo assunto está vazio ou contém somente espaços. A falha é intencional e também existe na edição. A atividade consiste em identificar a dificuldade que isso causa à assistência e solicitar ao Codex uma correção pequena, revisável e testável.
+O CRUD já está pronto. Clientes(id, nome, contato) se relaciona com Solicitacoes(id, cliente_id, equipamento, assunto, status). Uma pessoa pode ter várias solicitações. A FK existe, mas cliente_id permite NULL. A aplicação também deixa a seleção vazia, permitindo pedidos sem cliente e sem contato. Essa é a falha didática principal. O assunto já é obrigatório nesta versão.
 
-Não corrigir antecipadamente a falha em tarefas de aparência ou preparação. Não usar dados reais de clientes.
+O campo anulável torna a base representativa de um sistema que aceitava vínculo opcional, enquanto a regra de negócio agora exige cliente identificado. Não afirme que a FK está quebrada: ela verifica IDs preenchidos, mas não impõe a obrigatoriedade nesta estrutura.
 
-## Funcionalidades
+## Execução
 
-- Cadastro, consulta, edição e exclusão de solicitações.
-- Busca e filtro por status, com persistência no MySQL.
-- Modo escuro e claro com preferência do navegador.
-- Conexão PDO, consultas preparadas, escape de HTML e CSRF.
-- Orientações de trabalho em `AGENTS.md` e verificador local de UTF-8.
+URL nesta máquina: http://localhost/aula-senac178/ . Pasta: C:\wamp64\www\aula-senac178. Novo banco: senac178_oficina_relacional. O banco anterior senac178_oficina_demo permanece intacto. Configuração local e backups ficam fora do Git.
 
-## Preparação local
+Para uma instalação nova, tools/instalar_local.php exige WAMP em C:\wamp64, MySQL na porta 3306, administração local padrão sem senha e destino livre. Ele recusa pasta, banco ou usuário já existentes. Para atualizar esta instalação anterior, tools/preparar_relacional.php cria um banco novo e um backup protegido do código/configuração anteriores; não altera o banco antigo. Esses procedimentos são preparação anterior à aula, não atividade ao vivo.
 
-Leia [as instruções de instalação e uso](LEIA_ME.md). O instalador inicial é específico para WAMP em `C:\wamp64`, MySQL na porta 3306 e administração local padrão sem senha. Ele recusa o destino quando a pasta, o banco ou o usuário já existem e cria uma credencial exclusiva para o banco da demonstração.
+## Materiais e qualidade
 
-A aplicação funciona no próprio computador, em `http://localhost/aula-senac178/`. A configuração gerada `config.local.php` não faz parte do repositório. O SQL contém apenas a estrutura e três exemplos fictícios, um deles sem assunto.
+Prompt: aula/PROMPT_PARA_CODEX.txt. Casos: aula/TESTES.md. Controles inspirados no BAZZO: aula/QUALIDADE_E_VERSIONAMENTO.md. Antes e depois de editar: php tools/verificar_utf8.php e php -l nos PHP alterados. Depois, revisar o diff e testar no navegador. O modo escuro tem alternância e preferência local.
 
-## Condução da aula
+O agente deve solicitar Comitar após apresentar a mudança validada e pedir Push separadamente após informar o SHA. Uma regra em AGENTS.md orienta o agente, mas não impede comandos manuais do Git.
 
-- [Prompt técnico para o Codex](aula/PROMPT_PARA_CODEX.txt).
-- [Casos de teste](aula/TESTES.md).
-- [Qualidade, UTF-8 e versionamento](aula/QUALIDADE_E_VERSIONAMENTO.md).
-- [Regras do agente e aprovações](AGENTS.md).
+## GitHub
 
-Execute `php tools/verificar_utf8.php` antes e depois de alterar o código. Use também `php -l` nos PHP modificados e teste o comportamento no navegador. Esses checks não substituem a revisão humana.
+Repositório público: https://github.com/rolfrostock/senac178-oficina-demo. O commit 90e0cd8 registra a base anterior de uma tabela. O novo caso de duas tabelas só estará disponível online depois de aprovar seu commit e seu push. A cópia local do kit não comprova publicação remota. Não existe tag automática de versão nem publicação da aplicação pelo GitHub.
 
-Para futuras alterações, o agente deve apresentar o diff e as verificações antes de pedir `Comitar`. Após o commit, deve apresentar o SHA e solicitar separadamente `Push`. Cada autorização vale somente para a proposta apresentada.
+## Contingência e limites
+
+O aplicativo depende de Apache/PHP e MySQL, mesmo sem internet. Ele não funciona ao abrir o PHP diretamente como arquivo. Sem IA, usar o trecho de resposta preparado no kit e informar que é um exemplo local. Sem WAMP, usar capturas e ficha impressa, deixando claro que a execução ao vivo está indisponível. Nenhuma chamada à IA ocorre dentro do aplicativo.
+
+Todo dado é fictício. Não atribuir automaticamente os pedidos antigos a clientes para fazer os testes passarem. Consulte as instruções completas do kit e preserve a base com problema antes do ensaio.

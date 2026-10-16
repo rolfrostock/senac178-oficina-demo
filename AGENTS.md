@@ -4,12 +4,12 @@ Aplicativo local em PHP 8 com PDO e MySQL. Não há frameworks nem dependências
 
 - O CRUD de solicitações já está implementado em `index.php`, `salvar.php` e `excluir.php`.
 - Os registros são persistentes no banco exclusivo da demonstração.
-- Há uma falha didática intencional: `salvar.php` permite assunto vazio e composto apenas por espaços, no cadastro e na edição.
-- Não corrija essa falha em alterações de preparação ou aparência. Corrija quando o usuário solicitar a validação do assunto durante a aula.
-- Ao corrigir, valide no servidor antes de INSERT/UPDATE e utilize o fluxo de erros existente. Esse fluxo preserva os demais dados e retorna o foco para o assunto.
+- Há uma falha didática intencional: `salvar.php` permite cliente_id NULL no cadastro e na edição. O assunto já possui validação.
+- Não corrija essa falha em alterações de preparação ou aparência. Corrija quando o usuário solicitar a obrigatoriedade do cliente durante a aula.
+- Ao corrigir, valide no servidor antes de INSERT/UPDATE e utilize o fluxo de erros existente. Esse fluxo preserva os demais dados e retorna o foco para o cliente.
 - Preserve prepared statements, escape de HTML, CSRF e restrição ao computador local.
 - Não altere outros projetos, usuários ou bancos. Não exiba credenciais de `config.local.php`.
-- O banco não exige texto significativo: `NOT NULL` não rejeita strings vazias ou só com espaços.
+- Existem duas tabelas: clientes e solicitacoes. A FK solicitacoes.cliente_id referencia clientes.id, mas a coluna permite NULL. IDs inexistentes já são rejeitados; a falha é a ausência de seleção. Não remova a FK nem altere dados históricos para mascarar o problema.
 - Nunca limpe dados nem execute a restauração sem solicitação explícita do usuário.
 
 ## Qualidade em cada alteração

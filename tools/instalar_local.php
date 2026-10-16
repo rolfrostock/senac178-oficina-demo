@@ -7,8 +7,8 @@ if (PHP_SAPI !== 'cli') {
 // Este instalador cria somente a pasta e o banco novos, sem substituir existentes.
 $source = dirname(__DIR__);
 $destination = 'C:/wamp64/www/aula-senac178';
-$database = 'senac178_oficina_demo';
-$username = 'senac178_demo';
+$database = 'senac178_oficina_relacional';
+$username = 'senac178_rel';
 $password = bin2hex(random_bytes(24));
 if (file_exists($destination)) exit("A pasta de destino já existe. Nenhum arquivo foi alterado.\n");
 $admin = new PDO('mysql:host=127.0.0.1;port=3306;charset=utf8mb4', 'root', '', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
@@ -23,7 +23,7 @@ function copyProject(string $source, string $destination): void
 {
     if (!mkdir($destination, 0775, true) && !is_dir($destination)) throw new RuntimeException('Não foi possível criar a pasta.');
     foreach (new DirectoryIterator($source) as $entry) {
-        if ($entry->isDot() || $entry->getFilename() === 'config.local.php') continue;
+        if ($entry->isDot() || in_array($entry->getFilename(), ['config.local.php', '.git', 'backups'], true)) continue;
         $target = $destination . '/' . $entry->getFilename();
         if ($entry->isDir()) copyProject($entry->getPathname(), $target);
         elseif (!copy($entry->getPathname(), $target)) throw new RuntimeException('Falha na cópia de um arquivo.');
@@ -43,4 +43,4 @@ echo 'Instalado em: ' . $destination . "\n";
 echo 'Banco exclusivo: ' . $database . "\n";
 echo 'Registros fictícios: ' . $verify->query('SELECT COUNT(*) FROM solicitacoes')->fetchColumn() . "\n";
 echo "URL: http://localhost/aula-senac178/\n";
-echo "Falha de validação do assunto preservada para a aula.\n";
+echo "Falha de obrigatoriedade do cliente preservada para a aula.\n";
