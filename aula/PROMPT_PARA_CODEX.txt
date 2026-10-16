@@ -1,0 +1,26 @@
+Contexto e problema
+Este projeto contém um CRUD em PHP e MySQL para uma assistência técnica de computadores. A recepção consegue salvar solicitações com o campo Assunto vazio ou contendo somente espaços. Esses pedidos chegam ao técnico sem a descrição do serviço, exigindo novo contato para recuperar informações e gerando retrabalho e atraso.
+
+Ambiente e escopo
+Projeto local servido pelo Apache do WAMP. Os dados persistem no MySQL. O CRUD e o tratamento de erros já existem. Analise index.php e salvar.php e mantenha as alterações limitadas à validação do assunto.
+
+Requisito
+Uma solicitação deve conter assunto com texto além de espaços em branco. Aplique a regra no PHP, antes de INSERT e UPDATE. Não dependa somente da validação do navegador.
+
+Quando a entrada for inválida, não grave nem altere o registro. Exiba uma mensagem clara, preserve os demais campos e retorne o foco ao assunto usando o fluxo de erros existente.
+
+Preserve o cadastro de solicitações válidas, a listagem, a busca, os filtros, a edição e a exclusão. Não adicione dependências nem mude credenciais, tabelas ou dados existentes.
+
+Critérios de aceite
+1. Assunto "Trocar teclado": salvar e exibir na lista, inclusive após recarregar.
+2. Assunto vazio: rejeitar com mensagem e manter a quantidade de registros.
+3. Assunto com três espaços: mesmo bloqueio.
+4. Na edição, rejeitar vazio e espaços sem apagar o assunto válido que já estava no banco.
+
+Mostre a diferença no código e explique como verificar cada critério. Não modifique nem apague os registros antigos para simular sucesso.
+
+Qualidade a cada alteração
+Siga AGENTS.md. Preserve UTF-8 sem BOM e a acentuação dos textos. Execute php tools/verificar_utf8.php antes e depois da edição, execute php -l nos PHP alterados e revise o diff. Uma nova versão só pode ser considerada pronta após os checks e a conferência do fluxo na tela. Não remova acentos nem regrave todos os arquivos para contornar falhas de codificação.
+
+Aprovações
+Depois da implementação e das verificações, apresente o resumo do diff, os arquivos alterados, os resultados dos testes, eventuais pendências e a mensagem proposta para o commit. Aguarde minha aprovação para comitar. Depois do commit, informe o SHA e peça autorização separada para o push. Não execute commit nem push automaticamente.

@@ -1,0 +1,8 @@
+Options -Indexes
+Require local
+<If "%{REQUEST_URI} =~ m#(?:^|/)\.git(?:/|$)#">
+    Require all denied
+</If>
+<FilesMatch "^(config(?:\.local)?\.php|AGENTS\.md|LEIA_ME\.md)$">
+    Require all denied
+</FilesMatch>

@@ -1,0 +1,18 @@
+# Configuração e credenciais específicas do computador
+/config.local.php
+.env
+.env.*
+!.env.example
+
+# Dados e arquivos locais de execução
+*.log
+*.cookies
+*.dump.sql
+/backups/
+/database-backups/
+/logs/
+/tmp/
+/vendor/
+/node_modules/
+.DS_Store
+Thumbs.db
