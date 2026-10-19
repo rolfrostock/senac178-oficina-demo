@@ -14,3 +14,5 @@ T3: ao editar uma solicitação válida e retirar o cliente: bloquear sem apagar
 Revisão adicional fora do tempo principal: ID inexistente deve continuar sendo rejeitado.
 
 Mostre o diff e explique a correção. Execute php tools/verificar_utf8.php e php -l nos PHP alterados. Depois dos testes, apresente arquivos, resultados, pendências e mensagem proposta. Aguarde aprovação para Comitar e, separadamente após o commit, para Push. Não faça commit, push nem limpeza do banco automaticamente.
+
+Ao concluir, apresente um resumo do que mudou, por que atende à regra e o diff local. Execute sintaxe e UTF-8 como verificações técnicas. O diff público depende de commit e push aprovados separadamente; não publique automaticamente.

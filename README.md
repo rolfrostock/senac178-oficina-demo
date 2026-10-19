@@ -16,13 +16,13 @@ Para uma instalação nova, tools/instalar_local.php exige WAMP em C:\wamp64, My
 
 ## Materiais e qualidade
 
-Prompt: aula/PROMPT_PARA_ANTIGRAVITY.txt (ou aula/PROMPT_PARA_CODEX.txt). Assistente de IA: Google Antigravity (sem custos, via conta Gmail). Casos: aula/TESTES.md. Controles inspirados no BAZZO: aula/QUALIDADE_E_VERSIONAMENTO.md. Antes e depois de editar: php tools/verificar_utf8.php e php -l nos PHP alterados. Depois, revisar o diff e testar no navegador. O modo escuro tem alternância e preferência local.
+Prompt: aula/PROMPT_PARA_CODEX.txt. Casos: aula/TESTES.md. Controles inspirados no BAZZO: aula/QUALIDADE_E_VERSIONAMENTO.md. Antes e depois de editar: php tools/verificar_utf8.php e php -l nos PHP alterados. Depois, revisar o diff e testar no navegador. O modo escuro tem alternância e preferência local.
 
 O agente deve solicitar Comitar após apresentar a mudança validada e pedir Push separadamente após informar o SHA. Uma regra em AGENTS.md orienta o agente, mas não impede comandos manuais do Git.
 
 ## GitHub
 
-Repositório público: https://github.com/rolfrostock/senac178-oficina-demo. O commit 90e0cd8 registra a base anterior de uma tabela. O novo caso de duas tabelas só estará disponível online depois de aprovar seu commit e seu push. A cópia local do kit não comprova publicação remota. Não existe tag automática de versão nem publicação da aplicação pelo GitHub.
+Repositório público: https://github.com/rolfrostock/senac178-oficina-demo. O commit 90e0cd8 registra a base anterior de uma tabela. A base de duas tabelas com problema foi publicada no commit bea99b7a01b7b5098ef730bf0b93e621cd3eca07. Ensaios prévios devem usar somente a cópia de treino em pasta e banco separados. A futura correção ainda não foi publicada. Não existe tag automática de versão nem publicação da aplicação pelo GitHub.
 
 ## Contingência e limites
 

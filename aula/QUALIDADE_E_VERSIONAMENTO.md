@@ -1,14 +1,10 @@
 # Qualidade e codificação durante a evolução do sistema
 
-## Por que citar isso na aula
+## Preparação do orquestrador
 
-Uma alteração pode resolver a regra de negócio e, ao regravar um arquivo com outra codificação, corromper textos que já funcionavam. À medida que novas versões se acumulam, revisões sucessivas podem espalhar essa corrupção e dificultar descobrir quando ela começou. É necessário verificar a cada alteração, além de manter uma cópia anterior recuperável.
+Uma alteração pode atender à regra de negócio e ainda introduzir problemas de codificação ao regravar arquivos. Verifique UTF-8 sem BOM, sintaxe, textos e diferenças entre versões antes e depois das mudanças. Essas verificações ajudam a distinguir problemas de formatação de falhas da lógica, sem garantir ausência de erros.
 
-Fala sugerida para cerca de 25 segundos durante a revisão do código:
-
-“Além de conferir a regra do cadastro, vamos preservar o que já funciona. Em cada versão, verificamos a sintaxe, a codificação UTF-8 e os textos com acentos. Uma mudança que resolve o cliente não selecionado, mas corrompe a tela, ainda precisa de correção. Por isso revisamos o código e testamos o resultado antes de considerar a versão pronta.”
-
-Use esse trecho dentro do tempo de revisão, sem acrescentar uma nova etapa aos vinte minutos. Os alunos podem observar solicitação, diagnóstico e concluído na interface.
+Esses detalhes são preparação técnica do docente e instruções do agente. Não fazem parte da fala aos alunos na aula de vinte minutos. O foco da aula é entender a dificuldade do atendimento, definir a regra, revisar a proposta e verificar seu comportamento. Consulte o roteiro revisado em 03_Guia_docente.
 
 ## O que foi encontrado no BAZZO
 
