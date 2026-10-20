@@ -1,6 +1,6 @@
 # Oficina Byte com duas tabelas
 
-Versão de preparação 1.1.0. Aula SENAC PR 178/2026 em 19/10/2026 às 16h, duração de vinte minutos, banca de três pessoas como alunos. Tema: Desenvolvimento de sistemas com apoio da Inteligência Artificial: da identificação do problema à implementação de soluções.
+Versão de preparação 1.1.0. Aula SENAC PR 178/2026 em 19/10/2026 às 16h, duração de vinte minutos, banca de três pessoas. Tema: Desenvolvimento de sistemas com apoio da Inteligência Artificial: da identificação do problema à implementação de soluções.
 
 ## Caso e falha preparados
 
