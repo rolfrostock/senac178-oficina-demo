@@ -4,7 +4,7 @@ Versão de preparação 1.1.0. Aula SENAC PR 178/2026 em 19/10/2026 às 16h, dur
 
 ## Caso e falha preparados
 
-O CRUD já está pronto. Clientes(id, nome, contato) se relaciona com Solicitacoes(id, cliente_id, equipamento, assunto, status). Uma pessoa pode ter várias solicitações. A FK existe, mas cliente_id permite NULL. A aplicação também deixa a seleção vazia, permitindo pedidos sem cliente e sem contato. Essa é a falha didática principal. O assunto já é obrigatório nesta versão.
+O CRUD já está pronto. Clientes(id, nome, contato) se relaciona com Solicitacoes(id, cliente_id, equipamento, assunto, status). Uma pessoa pode ter várias solicitações. A FK existe, mas cliente_id permite NULL. A aplicação também deixa a seleção vazia, permitindo pedidos sem cliente e sem contato. Essa é a falha didática principal.
 
 O campo anulável torna a base representativa de um sistema que aceitava vínculo opcional, enquanto a regra de negócio agora exige cliente identificado. Não afirme que a FK está quebrada: ela verifica IDs preenchidos, mas não impõe a obrigatoriedade nesta estrutura.
 
@@ -28,4 +28,4 @@ Repositório público: https://github.com/rolfrostock/senac178-oficina-demo. O c
 
 O aplicativo depende de Apache/PHP e MySQL, mesmo sem internet. Ele não funciona ao abrir o PHP diretamente como arquivo. Sem IA, usar o trecho de resposta preparado no kit e informar que é um exemplo local. Sem WAMP, usar capturas e ficha impressa, deixando claro que a execução ao vivo está indisponível. Nenhuma chamada à IA ocorre dentro do aplicativo.
 
-Todo dado é fictício. Não atribuir automaticamente os pedidos antigos a clientes para fazer os testes passarem. Consulte as instruções completas do kit e preserve a base com problema antes do ensaio.
+Todo dado é fictício.
